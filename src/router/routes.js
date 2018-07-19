@@ -1,11 +1,11 @@
-import WordsList from '@/views/WordsList.vue';
+import Words from '@/views/Words.vue';
 import WordsTraining from '@/views/WordsTraining.vue';
 
 export default [
   {
     path: '/',
-    name: 'WordsList',
-    component: WordsList
+    name: 'Words',
+    component: Words
   },
   {
     path: '/training',
