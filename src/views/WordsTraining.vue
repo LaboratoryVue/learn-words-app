@@ -20,7 +20,7 @@
       </div>
     </div>
     <section v-show="showNext" class="controls">
-      <button type="button" :class="indicator" class="btn btn-lg">next</button>
+      <button @click="onNext()" type="button" :class="indicator" class="btn btn-lg">next</button>
     </section>
   </div>
 </template>
@@ -34,12 +34,13 @@ export default {
       showError: false,
       showList: true,
       showNext: false,
-      indicator: ''
+      indicator: '',
+      index: 0
     };
   },
   computed: {
     current() {
-      return this.words[0];
+      return this.words[this.index];
     },
     words() {
       return this.$store.getters.getTestWords;
@@ -68,6 +69,15 @@ export default {
         this.indicator = 'btn-danger';
       }
       this.showNext = true;
+    },
+    onNext() {
+      if (this.index < this.words.length) {
+        this.index += 1;
+        this.showList = true;
+        this.showNext = false;
+        this.showSuccess = false;
+        this.showError = false;
+      }
     }
   }
 };
