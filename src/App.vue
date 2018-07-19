@@ -1,7 +1,15 @@
 <template>
-  <div id="app">
-    <navigation />
-    <router-view/>
+  <div id="app" class="container">
+    <div class="row">
+      <div class="col">
+        <navigation />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <router-view />
+      </div>
+    </div>
   </div>
 </template>
 
@@ -21,6 +29,5 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
 }
 </style>
