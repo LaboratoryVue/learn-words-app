@@ -2,17 +2,36 @@
   <div class="training word">
     <h3 class="text-capitalize mb-4 training__title">select translation</h3>
     <p class="word__current">{{ current.origin }}</p>
-    <ul class="list-group word__list">
+    <ul v-show="showList" class="list-group word__list">
       <li @click="onSelect(i)" class="list-group-item mb-2 word__item" v-for="(translate,i) in translated" :key="i">
         {{ translate }}
       </li>
     </ul>
+    <div v-show="showSuccess" class="jumbotron jumbotron-fluid success bg-success">
+      <div class="container">
+        <h1 class="display-4">success</h1>
+        <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+      </div>
+    </div>
+    <div v-show="showError" class="jumbotron jumbotron-fluid error bg-danger">
+      <div class="container">
+        <h1 class="display-4">error</h1>
+        <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   name: 'WordsTraining',
+  data() {
+    return {
+      showSuccess: false,
+      showError: false,
+      showList: true
+    };
+  },
   computed: {
     current() {
       return this.words[0];
@@ -30,7 +49,14 @@ export default {
   },
   methods: {
     onSelect(index) {
-      console.log(`${index}`);
+      this.showList = false;
+      if (this.translated[index] === this.current.translated) {
+        this.showSuccess = true;
+        this.showError = false;
+      } else {
+        this.showError = true;
+        this.showSuccess = false;
+      }
     }
   }
 };
@@ -53,5 +79,11 @@ export default {
       background-color: lightblue;
     }
   }
+}
+.success,
+.error {
+  border-radius: 0.4rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 </style>
