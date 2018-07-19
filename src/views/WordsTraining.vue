@@ -13,12 +13,15 @@
         <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
       </div>
     </div>
-    <div v-show="showError" class="jumbotron jumbotron-fluid error bg-danger">
+    <div v-show="showError" class="jumbotron jumbotron-fluid mistake bg-danger">
       <div class="container">
         <h1 class="display-4">error</h1>
         <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
       </div>
     </div>
+    <section v-show="showNext" class="controls">
+      <button type="button" :class="indicator" class="btn btn-lg">next</button>
+    </section>
   </div>
 </template>
 
@@ -29,7 +32,9 @@ export default {
     return {
       showSuccess: false,
       showError: false,
-      showList: true
+      showList: true,
+      showNext: false,
+      indicator: ''
     };
   },
   computed: {
@@ -49,14 +54,20 @@ export default {
   },
   methods: {
     onSelect(index) {
+      this.indicator = '';
       this.showList = false;
       if (this.translated[index] === this.current.translated) {
+        // success
         this.showSuccess = true;
         this.showError = false;
+        this.indicator = 'btn-success';
       } else {
+        // mistake
         this.showError = true;
         this.showSuccess = false;
+        this.indicator = 'btn-danger';
       }
+      this.showNext = true;
     }
   }
 };
@@ -81,9 +92,15 @@ export default {
   }
 }
 .success,
-.error {
+.mistake {
   border-radius: 0.4rem;
   padding-left: 2rem;
   padding-right: 2rem;
+}
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 2rem;
 }
 </style>
