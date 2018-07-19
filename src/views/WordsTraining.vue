@@ -20,7 +20,7 @@
       </div>
     </div>
     <section v-show="showNext" class="controls">
-      <button @click="onNext()" type="button" :class="indicator" class="btn btn-lg">next</button>
+      <button @click="onNext()" type="button" class="btn btn-info btn-lg">next</button>
     </section>
   </div>
 </template>
@@ -34,7 +34,6 @@ export default {
       showError: false,
       showList: true,
       showNext: false,
-      indicator: '',
       index: 0,
       results: []
     };
@@ -52,6 +51,10 @@ export default {
         result.push(this.words[index].translated);
       }
       return result.slice(0, 6);
+    },
+    progress() {
+      // TODO => watch?
+      return this.results.length * 100 / this.words.length;
     }
   },
   methods: {
@@ -62,13 +65,11 @@ export default {
         // success
         this.showSuccess = true;
         this.showError = false;
-        this.indicator = 'btn-success';
         this.results.push(true);
       } else {
         // mistake
         this.showError = true;
         this.showSuccess = false;
-        this.indicator = 'btn-danger';
         this.results.push(false);
       }
       this.showNext = true;

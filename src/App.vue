@@ -1,24 +1,29 @@
 <template>
-  <div id="app" class="container">
-    <div class="row">
-      <div class="col">
-        <navigation />
+  <section>
+    <indicator />
+    <div id="app" class="container">
+      <div class="row">
+        <div class="col">
+          <navigation />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <router-view />
+        </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col">
-        <router-view />
-      </div>
-    </div>
-  </div>
+  </section>
 </template>
 
 <script>
 import Navigation from '@/components/TheNavigation';
+import Indicator from '@/components/TheProgressbar';
 export default {
   name: 'RootApp',
   components: {
-    Navigation
+    Navigation,
+    Indicator
   }
 };
 </script>
