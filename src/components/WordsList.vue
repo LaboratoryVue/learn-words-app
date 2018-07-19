@@ -1,6 +1,6 @@
 <template>
   <ul class="list-group">
-    <words-list-item />
+    <words-list-item v-for="word in words" :key="word.origin" :word="word" />
   </ul>
 </template>
 
