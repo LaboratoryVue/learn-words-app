@@ -29,6 +29,14 @@ const mutations = {
       translated: payload.translated.toLowerCase()
     };
     state.words.push(newWord);
+  },
+  EDIT_WORD(state, payload) {
+    const index = state.words.findIndex(
+      el => el.origin === payload.origin.toLowerCase()
+    );
+    if (!index) return;
+    state.words[index].origin = payload.origin.toLowerCase();
+    state.words[index].translated = payload.translated.toLowerCase();
   }
 };
 
@@ -38,6 +46,9 @@ const actions = {
   },
   addWord({ commit }, payload) {
     commit('ADD_WORD', payload);
+  },
+  editWord({ commit }, payload) {
+    commit('EDIT_WORD', payload);
   }
 };
 

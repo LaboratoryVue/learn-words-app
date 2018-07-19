@@ -11,7 +11,8 @@
           <label class="text-capitalize" for="translated">translated text</label>
           <input v-model="word.translated" type="text" class="form-control" id="translated" placeholder="Enter translated text" required>
         </div>
-        <button type="submit" class="btn btn-primary text-capitalize" :disabled="disabled">add word</button>
+        <button type="submit" class="btn btn-primary text-capitalize mr-3" :disabled="disabled">add word</button>
+        <button @click="goBack()" type="button" class="btn btn-warning text-capitalize">cancel</button>
       </form>
     </div>
   </div>
@@ -44,6 +45,9 @@ export default {
     onAdd() {
       this.$store.dispatch('addWord', { ...this.word });
       this.clearForm();
+      this.$router.push('/');
+    },
+    goBack() {
       this.$router.push('/');
     }
   }

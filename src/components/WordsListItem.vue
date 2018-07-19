@@ -4,7 +4,7 @@
       <span class="text-capitalize word__primary">{{ word.origin }}</span>
       <span class="text-capitalize word__secondary">{{ word.translated }}</span>
     </section>
-    <button @click="onEdit(word.origin)" class="btn btn-primary btn-sm">edit</button>
+    <button @click="onEdit(word.origin)" class="btn btn-primary btn-sm text-capitalize word__button">edit</button>
   </li>
 </template>
 
@@ -38,6 +38,10 @@ export default {
   &__secondary {
     color: darkgreen;
     font-style: italic;
+  }
+  &__button {
+    font-size: 0.85rem;
+    line-height: 1;
   }
 }
 </style>
