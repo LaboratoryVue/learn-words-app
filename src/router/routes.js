@@ -1,5 +1,5 @@
-import WordsList from '../views/WordsList.vue';
-import WordsTraining from '../views/WordsTraining.vue';
+import WordsList from '@/views/WordsList.vue';
+import WordsTraining from '@/views/WordsTraining.vue';
 
 export default [
   {
