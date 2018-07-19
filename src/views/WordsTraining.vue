@@ -1,10 +1,10 @@
 <template>
   <div class="training word">
     <h3 class="text-capitalize mb-4 training__title">select translation</h3>
-    <p class="word__current">{{ current.origin }}</p>
+    <p class="word__current text-uppercase">{{ current.origin }}</p>
     <ul v-show="showList" class="list-group word__list">
       <li @click="onSelect(i)" class="list-group-item mb-2 word__item" v-for="(translate,i) in translated" :key="i">
-        {{ translate }}
+        <span class="text-lowercase">{{ translate }}</span>
       </li>
     </ul>
     <div v-show="showSuccess" class="jumbotron jumbotron-fluid success bg-success">
@@ -35,7 +35,8 @@ export default {
       showList: true,
       showNext: false,
       indicator: '',
-      index: 0
+      index: 0,
+      results: []
     };
   },
   computed: {
@@ -62,11 +63,13 @@ export default {
         this.showSuccess = true;
         this.showError = false;
         this.indicator = 'btn-success';
+        this.results.push(true);
       } else {
         // mistake
         this.showError = true;
         this.showSuccess = false;
         this.indicator = 'btn-danger';
+        this.results.push(false);
       }
       this.showNext = true;
     },
@@ -90,7 +93,7 @@ export default {
     text-align: center;
     color: blue;
     font-weight: 700;
-    font-size: 2rem;
+    font-size: 1.6rem;
   }
   &__item {
     cursor: pointer;
