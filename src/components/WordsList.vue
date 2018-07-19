@@ -10,6 +10,11 @@ export default {
   name: 'WordsList',
   components: {
     WordsListItem
+  },
+  computed: {
+    words() {
+      return this.$store.getters.getWords;
+    }
   }
 };
 </script>

@@ -7,7 +7,7 @@
     </div>
     <div class="row">
       <div class="col">
-        <button type="button" class="btn btn-info text-capitalize">add new word</button>
+        <button @click="onSelect()" type="button" class="btn btn-info text-capitalize">add new word</button>
       </div>
     </div>
   </div>
@@ -19,6 +19,11 @@ export default {
   name: 'Words',
   components: {
     WordsList
+  },
+  methods: {
+    onSelect() {
+      this.$router.push('/adding');
+    }
   }
 };
 </script>
