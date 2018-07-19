@@ -1,11 +1,16 @@
 <template>
   <div class="training">
-    <h1>This is an about page</h1>
+    <h3 class="text-capitalize">select translation</h3>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'WordsTraining'
+  name: 'WordsTraining',
+  computed: {
+    words() {
+      return this.$store.getters.getTestWords
+    }
+  }
 };
 </script>

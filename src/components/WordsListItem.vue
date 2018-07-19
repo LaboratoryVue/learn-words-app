@@ -27,18 +27,20 @@ export default {
 
 <style scoped lang="scss">
 .word {
-  //
   &__wrapper {
     width: 60%;
   }
+
   &__primary {
     font-weight: 700;
     color: forestgreen;
   }
+
   &__secondary {
     color: darkgreen;
     font-style: italic;
   }
+
   &__button {
     font-size: 0.85rem;
     line-height: 1;

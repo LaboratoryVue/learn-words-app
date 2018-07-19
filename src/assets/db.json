@@ -10,5 +10,77 @@
   {
     "origin": "father",
     "translated": "отец"
+  },
+  {
+    "origin": "apple",
+    "translated": "яблоко"
+  },
+  {
+    "origin": "roof",
+    "translated": "крыша"
+  },
+  {
+    "origin": "table",
+    "translated": "стол"
+  },
+  {
+    "origin": "yellow",
+    "translated": "желтый"
+  },
+  {
+    "origin": "cat",
+    "translated": "кошка"
+  },
+  {
+    "origin": "dog",
+    "translated": "собака"
+  },
+  {
+    "origin": "mouse",
+    "translated": "мышь"
+  },
+  {
+    "origin": "bucket",
+    "translated": "корзина"
+  },
+  {
+    "origin": "black",
+    "translated": "черный"
+  },
+  {
+    "origin": "white",
+    "translated": "белый"
+  },
+  {
+    "origin": "flower",
+    "translated": "цветок"
+  },
+  {
+    "origin": "korean",
+    "translated": "корейский"
+  },
+  {
+    "origin": "carrot",
+    "translated": "морковь"
+  },
+  {
+    "origin": "ocean",
+    "translated": "океан"
+  },
+  {
+    "origin": "shark",
+    "translated": "акула"
+  },
+  {
+    "origin": "brown",
+    "translated": "коричневый"
+  },
+  {
+    "origin": "ship",
+    "translated": "корабль"
+  },
+  {
+    "origin": "sailor",
+    "translated": "моряк"
   }
 ]

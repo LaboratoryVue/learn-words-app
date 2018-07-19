@@ -5,7 +5,8 @@ import db from '../assets/db.json';
 Vue.use(Vuex);
 
 const state = {
-  words: []
+  words: [],
+  testWords: []
 };
 
 const getters = {
@@ -14,12 +15,16 @@ const getters = {
   },
   getSelectedWord(state) {
     return id => state.words.find(el => el.origin === id);
+  },
+  getTestWords(state) {
+    return state.testWords;
   }
 };
 
 const mutations = {
   INIT_WORDS(state) {
     db.forEach(element => state.words.push(element));
+    state.testWords = state.words.slice(0, 20);
   },
   ADD_WORD(state, payload) {
     const sample = state.words.find(el => el === payload.origin.toLowerCase());
