@@ -2,5 +2,13 @@
   {
     "origin": "like",
     "translated": "нравиться"
+  },
+  {
+    "origin": "mother",
+    "translated": "мать"
+  },
+  {
+    "origin": "father",
+    "translated": "отец"
   }
 ]

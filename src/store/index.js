@@ -11,6 +11,9 @@ const state = {
 const getters = {
   getWords(state) {
     return state.words;
+  },
+  getSelectedWord(state) {
+    return id => state.words.find(el => el.origin === id);
   }
 };
 
@@ -19,7 +22,13 @@ const mutations = {
     db.forEach(element => state.words.push(element));
   },
   ADD_WORD(state, payload) {
-    state.words.push(payload);
+    const sample = state.words.find(el => el === payload.origin.toLowerCase());
+    if (sample) return;
+    const newWord = {
+      origin: payload.origin.toLowerCase(),
+      translated: payload.translated.toLowerCase()
+    };
+    state.words.push(newWord);
   }
 };
 

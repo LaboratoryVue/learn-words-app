@@ -4,7 +4,7 @@
       <span class="text-capitalize word__primary">{{ word.origin }}</span>
       <span class="text-capitalize word__secondary">{{ word.translated }}</span>
     </section>
-    <button class="btn btn-primary btn-sm">edit</button>
+    <button @click="onEdit(word.origin)" class="btn btn-primary btn-sm">edit</button>
   </li>
 </template>
 
@@ -15,6 +15,11 @@ export default {
     word: {
       type: Object,
       default: () => {}
+    }
+  },
+  methods: {
+    onEdit(id) {
+      this.$router.push(`/editing/${id}`);
     }
   }
 };
