@@ -45,6 +45,7 @@ export default {
       showList: true,
       showNext: false,
       index: 0,
+      quantity: 6,
       results: []
     };
   },
@@ -57,10 +58,20 @@ export default {
     },
     translated() {
       const result = [];
+      let chunk = [];
+      let summury = [];
       for (let index = 0; index < this.words.length; index++) {
         result.push(this.words[index].translated);
       }
-      return shuffle(result.slice(0, 6));
+      summury.push(
+        result.filter(el => el === this.words[this.index].translated)[0]
+      );
+      chunk = result.filter(el => el !== this.words[this.index].translated);
+      for (let i = 0; i < this.quantity - 1; i += 1) {
+        const rand = Math.floor(Math.random() * chunk.length);
+        summury.push(chunk.splice(rand, 1)[0]);
+      }
+      return shuffle(summury);
     },
     progress() {
       // TODO => watch?
