@@ -7,18 +7,8 @@
         <span class="text-lowercase">{{ translate }}</span>
       </li>
     </ul>
-    <div v-show="showSuccess" class="jumbotron jumbotron-fluid success bg-success">
-      <div class="container">
-        <h1 class="display-4">success</h1>
-        <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
-      </div>
-    </div>
-    <div v-show="showError" class="jumbotron jumbotron-fluid mistake bg-danger">
-      <div class="container">
-        <h1 class="display-4">error</h1>
-        <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
-      </div>
-    </div>
+    <success-block :show="showSuccess" />
+    <error-block :show="showError" />
     <section v-show="showNext" class="controls">
       <button @click="onNext()" type="button" class="btn btn-info btn-lg">next</button>
     </section>
@@ -36,6 +26,8 @@ function shuffle(arr) {
   }
   return arr;
 }
+import ErrorBlock from '../components/showError';
+import SuccessBlock from '../components/ShowSuccess';
 export default {
   name: 'WordsTraining',
   data() {
@@ -48,6 +40,10 @@ export default {
       quantity: 6,
       results: []
     };
+  },
+  components: {
+    ErrorBlock,
+    SuccessBlock
   },
   computed: {
     current() {
