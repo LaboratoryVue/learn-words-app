@@ -26,6 +26,16 @@
 </template>
 
 <script>
+function shuffle(arr) {
+  var j, temp;
+  for (var i = arr.length - 1; i > 0; i--) {
+    j = Math.floor(Math.random() * (i + 1));
+    temp = arr[j];
+    arr[j] = arr[i];
+    arr[i] = temp;
+  }
+  return arr;
+}
 export default {
   name: 'WordsTraining',
   data() {
@@ -50,7 +60,7 @@ export default {
       for (let index = 0; index < this.words.length; index++) {
         result.push(this.words[index].translated);
       }
-      return result.slice(0, 6);
+      return shuffle(result.slice(0, 6));
     },
     progress() {
       // TODO => watch?
